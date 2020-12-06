@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const Schema = mongoose.Schema;
-const reviewSchema = require('./teachers');
+const { titleCase, addCountryCode } = require('../lib/utils');
+const reviewSchema = require('./reviews');
 
 
 const studentSchema = new Schema({
@@ -42,6 +43,10 @@ const studentSchema = new Schema({
     trim: true
   },
   group: {
+    type: String,
+    trim: true
+  },
+  institution: {
     type: String,
     trim: true
   },

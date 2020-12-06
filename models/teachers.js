@@ -1,24 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const validator = require('validator');
-
-const reviewSchema = Schema({
-    request: {
-        type: Schema.Types.ObjectId,
-        ref: 'Request',
-    },
-    rating: {
-        type: Number,
-        required: true,
-        enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    },
-    description: {
-        type: String,
-        trim: true
-    },
-}, {
-    timestamps: true
-});
+const { titleCase, addCountryCode } = require('../lib/utils');
+const reviewSchema = require('./reviews');
 
 
 const teacherSchema = new Schema({
@@ -76,8 +60,6 @@ const teacherSchema = new Schema({
 }, {
   timestamps: true
 })
-
-module.exports = reviewSchema;
 
 const Teachers = mongoose.model('Teacher', teacherSchema);
 

@@ -29,6 +29,10 @@ const requestSchema = new Schema({
   },
   amount: {
     type: Number
+  },
+  confirmation: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true

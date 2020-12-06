@@ -3,12 +3,17 @@ const Schema = mongoose.Schema;
 
 
 const messageSchema = new Schema({
-  sender: {
+  studendtSender: {
     type: Schema.Types.ObjectId,
     ref: 'Student'
   },
+  teacherSender: {
+    type: Schema.Types.ObjectId,
+    ref: 'Teacher'
+  },
   text: {
-    type: String
+    type: String,
+    required: true
   },
   status: {
     enum: ["seen", "unseen", "notDelivered"],
